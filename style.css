@@ -1,0 +1,45 @@
+body {
+  background: black;
+  overflow: hidden;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  perspective: 1000px; /* tạo chiều sâu cho toàn cảnh */
+}
+
+.word {
+  position: absolute;
+  color: white;
+  text-shadow: 0 0 10px #fff, 0 0 20px #fff;
+  pointer-events: none;
+  font-weight: 600;
+  white-space: nowrap;
+  transform-origin: center;
+  animation: flyUp linear infinite;
+}
+
+@keyframes flyUp {
+  0% {
+    transform: translateY(0) rotateY(-20deg) rotateX(10deg) translateZ(0);
+    opacity: var(--opacity);
+  }
+  100% {
+    transform: translateY(-120vh) rotateY(-20deg) rotateX(10deg) translateZ(-100px);
+    opacity: 0;
+  }
+}
+
+.petal {
+  position: fixed;
+  top: -50px;
+  width: 20px;
+  height: 20px;
+  background: pink;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  opacity: 0.8;
+  filter:
+    drop-shadow(0 0 4px rgba(255, 182, 193, 0.8)) /* glow nhẹ */
+    drop-shadow(0 0 8px rgba(255, 105, 180, 0.6));
+  pointer-events: none;
+  animation-timing-function: linear;
+  will-change: transform, top, left;
+}
